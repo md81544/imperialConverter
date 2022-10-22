@@ -13,13 +13,18 @@ namespace imperialConverter
     public partial class frmMain : Form
     {
 
-        private void addNumber( String number )
+        private void focusInput()
         {
-            txtImperial.Text += number;
             txtImperial.Focus();
             txtImperial.DeselectAll();
             txtImperial.SelectionStart = txtImperial.Text.Length;  
             txtImperial.SelectionLength = 0; 
+        }
+
+        private void addNumber( String number )
+        {
+            txtImperial.Text += number;
+            focusInput();
         }
 
         public frmMain()
@@ -174,6 +179,7 @@ namespace imperialConverter
             }
             catch
             {
+                focusInput();
                 return;
             }
             double mm = 0.0;
@@ -403,6 +409,7 @@ namespace imperialConverter
             {
                 txtMetric.Clear();
             }
+            focusInput();
         }
 
         private void button13_Click(object sender, EventArgs e)
